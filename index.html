@@ -4,194 +4,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem sou eu?</title>
+
+    <title>Quem sou eu? | Minha História</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f8f2ff;
-            color: #3d2850;
+            background-color: #faf7ff;
+            color: #38234d;
         }
 
+        /* CABEÇALHO */
+
         header {
-            background: linear-gradient(135deg, #6a329f, #a66bd1);
+            background: linear-gradient(135deg, #37145c, #783bb0, #b78be0);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 65px 20px;
         }
 
         header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
+            font-size: 45px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 17px;
+            color: #f1e5ff;
         }
 
         .minha-foto {
-            width: 210px;
-            height: 210px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid white;
-            margin: 25px auto 15px;
+            border: 6px solid white;
+            margin: 30px auto 15px;
             display: block;
-            box-shadow: 0 4px 15px #44205f;
+            box-shadow: 0 8px 25px #28113d80;
         }
 
+        .frase {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        /* MENU */
+
         nav {
-            background-color: #4c2672;
-            padding: 15px;
+            background-color: #442064;
+            padding: 18px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 12px #00000020;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 13px;
+            font-size: 14px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #e6c9ff;
+            color: #d9b5ff;
         }
 
+        /* CONTEÚDO */
+
         section {
-            background-color: white;
-            margin: 25px auto;
-            padding: 30px;
-            max-width: 900px;
-            border-radius: 15px;
-            box-shadow: 0 3px 12px #d8c4e8;
+            background: white;
+            margin: 35px auto;
+            padding: 35px;
+            max-width: 1000px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px #7543a015;
+            border: 1px solid #eee3fa;
+            transition: 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #7543a025;
         }
 
         h2 {
-            color: #743da5;
-            margin-bottom: 15px;
+            color: #783bb0;
+            font-size: 27px;
+            margin-bottom: 20px;
+            border-left: 5px solid #a66bd1;
+            padding-left: 13px;
         }
 
         p {
-            line-height: 1.7;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* CARTÕES */
+
+        .destaque {
+            background: linear-gradient(135deg, #f7efff, #eee0ff);
+            padding: 23px;
+            border-radius: 12px;
+            border-left: 5px solid #874bb5;
+        }
+
+        .cartoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .cartao {
+            background-color: #f8f1ff;
+            padding: 23px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e7d5fa;
+            transition: 0.3s;
+        }
+
+        .cartao:hover {
+            transform: translateY(-6px);
+            background-color: #efe0ff;
+        }
+
+        .cartao h3 {
+            color: #743da5;
+            margin-bottom: 12px;
+            font-size: 19px;
+        }
+
+        .cartao p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .emoji {
+            font-size: 35px;
+            display: block;
             margin-bottom: 12px;
         }
 
-        .destaque {
-            background-color: #efe1fa;
-            padding: 18px;
-            border-left: 5px solid #874bb5;
-            border-radius: 8px;
+        /* FRASE */
+
+        .frase-destaque {
+            background: linear-gradient(135deg, #67339a, #a66bd1);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 19px;
+            font-style: italic;
+            margin-top: 20px;
         }
+
+        .frase-destaque p {
+            text-align: center;
+        }
+
+        /* RODAPÉ */
 
         footer {
-            background-color: #4c2672;
+            background: linear-gradient(135deg, #37145c, #5e2b87);
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 35px;
+            padding: 35px 20px;
+            margin-top: 50px;
         }
 
+        footer p {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        footer .coracao {
+            color: #e5c5ff;
+            font-size: 22px;
+        }
+
+        /* CELULAR */
+
         @media (max-width: 600px) {
+
+            header {
+                padding: 45px 15px;
+            }
+
             header h1 {
-                font-size: 28px;
+                font-size: 32px;
+            }
+
+            .minha-foto {
+                width: 175px;
+                height: 175px;
+            }
+
+            nav {
+                position: relative;
+                line-height: 2.5;
             }
 
             nav a {
                 display: inline-block;
-                margin: 7px;
+                margin: 3px 8px;
+                font-size: 13px;
             }
 
             section {
-                margin: 15px;
-                padding: 22px;
+                margin: 18px 12px;
+                padding: 23px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 15px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO -->
+
     <header>
+
         <h1>Quem sou eu?</h1>
 
-        <p>Um pouquinho sobre minha história, meus gostos e meus sonhos 💜</p>
+        <p>Um pouquinho da minha história. </p>
 
         <img src="fot minha .jpeg" alt="Minha foto" class="minha-foto">
+
+        <p class="frase">
+            "Cada experiência faz parte de quem eu sou e de quem ainda quero me tornar."
+        </p>
+
     </header>
+
+    <!-- MENU -->
 
     <nav>
         <a href="#sobre">Sobre mim</a>
+        <a href="#historia">Minha história</a>
         <a href="#gostos">Meus gostos</a>
         <a href="#momentos">Momentos</a>
+        <a href="#projetos">Meus projetos</a>
         <a href="#futuro">Meu futuro</a>
     </nav>
 
+    <!-- SOBRE MIM -->
+
     <section id="sobre">
+
         <h2>Prazer, essa sou eu!</h2>
 
         <p>
-            Sou uma pessoa de personalidade forte, um pouco teimosa e que
-            nem sempre consegue demonstrar o que sente. Às vezes posso ser
-            grossa ou parecer brava, mas tenho meu jeito de ser e me importo
-            muito com as pessoas que fazem parte da minha vida.
+            Meu nome é Luiza Gonçalves Puccetti. Sou uma pessoa de personalidade
+            forte, um pouco teimosa e que nem sempre consegue demonstrar aquilo
+            que sente. Às vezes posso parecer brava ou ser um pouco grossa,
+            mas quem me conhece sabe que tenho meu próprio jeito de ser.
         </p>
 
         <p>
-            Gosto de viver momentos especiais, dar risada, estar com minha
-            família e meus amigos e aproveitar as oportunidades que aparecem.
-            Ainda tenho muita coisa para aprender e viver.
+            Sou uma pessoa que gosta de aproveitar a vida, viver novas experiências,
+            conhecer lugares e criar lembranças com as pessoas importantes.
+            Tenho meus defeitos, minhas qualidades, meus momentos de dúvida
+            e também muitos sonhos que quero realizar.
         </p>
+
+        <p>
+            Acredito que cada fase da vida ensina alguma coisa. Ainda estou
+            descobrindo muitas coisas sobre mim, aprendendo com meus erros
+            e construindo aos poucos a pessoa que quero ser.
+        </p>
+
     </section>
+
+    <!-- MINHA HISTÓRIA -->
+
+    <section id="historia">
+
+        <h2>Um pouco da minha história</h2>
+
+        <p>
+            Minha história é formada por várias experiências, pessoas e momentos
+            que marcaram minha vida. Minha família e meus amigos fazem parte
+            de quem sou, e mesmo que eu nem sempre seja a melhor pessoa para
+            demonstrar sentimentos, tenho muito carinho por quem está ao meu lado.
+        </p>
+
+        <p>
+            Desde cedo, fui descobrindo coisas que realmente gosto de fazer.
+            Uma delas é o balé, que me trouxe experiências especiais,
+            aprendizados e oportunidades que talvez eu nunca imaginasse viver.
+        </p>
+
+        <p>
+            Também fui desenvolvendo meu interesse pelo mundo da beleza,
+            principalmente pelas unhas. Gosto de conhecer novas técnicas,
+            experimentar cores e prestar atenção nos detalhes.
+            É uma atividade que me permite usar minha criatividade.
+        </p>
+
+        <p>
+            Cada experiência que vivi ajudou a construir um pouquinho da minha
+            personalidade. Sei que ainda tenho muito para aprender e muitas
+            histórias para contar.
+        </p>
+
+    </section>
+
+    <!-- MEUS GOSTOS -->
 
     <section id="gostos">
-        <h2>Coisas que eu gosto</h2>
 
-        <div class="destaque">
-            <p><strong>Balé:</strong> Faz parte da minha vida e me proporciona
-            momentos e experiências muito especiais.</p>
+        <h2>Coisas que fazem parte de mim</h2>
 
-            <p><strong>Unhas:</strong> Gosto muito do mundo das unhas, de
-            conhecer técnicas, cores e cuidar dos detalhes.</p>
+        <div class="cartoes">
 
-            <p><strong>Animais:</strong> Tenho duas gatas que fazem parte
-            da minha vida.</p>
+            <div class="cartao">
+                <span class="emoji">🩰</span>
+                <h3>Balé</h3>
+                <p>
+                    Uma das partes especiais da minha vida.
+                    O balé me proporciona experiências, amizades
+                    e lembranças que quero guardar.
+                </p>
+            </div>
 
-            <p><strong>Família e amigos:</strong> São pessoas importantes
-            para mim, mesmo que eu nem sempre consiga demonstrar isso.</p>
+            <div class="cartao">
+                <span class="emoji">💅</span>
+                <h3>Unhas</h3>
+                <p>
+                    Amo o universo das unhas, conhecer técnicas,
+                    testar cores e criar trabalhos com muito cuidado
+                    e criatividade.
+                </p>
+            </div>
+
+            <div class="cartao">
+                <span class="emoji">🐱</span>
+                <h3>Minhas gatas</h3>
+                <p>
+                    Tenho duas gatas que fazem parte da minha vida
+                    e deixam meus dias ainda mais especiais.
+                </p>
+            </div>
+
+            <div class="cartao">
+                <span class="emoji">💜</span>
+                <h3>Família e amigos</h3>
+                <p>
+                    Pessoas que fazem parte da minha história,
+                    compartilham momentos comigo e tornam
+                    minha caminhada mais especial.
+                </p>
+            </div>
+
         </div>
+
     </section>
+
+    <!-- MOMENTOS ESPECIAIS -->
 
     <section id="momentos">
-        <h2>Momentos especiais</h2>
+
+        <h2>Momentos que marcaram minha vida</h2>
 
         <p>
-            Uma das experiências mais marcantes que vivi foi minha viagem
-            para a Itália. Foi uma oportunidade incrível, que me trouxe
-            lembranças, aprendizados e amizades que quero levar para a vida.
+            Uma das experiências mais especiais que vivi foi minha viagem
+            para a Itália. Essa viagem foi muito mais do que conhecer um
+            lugar novo. Foi uma oportunidade de viver algo diferente,
+            sair da rotina e guardar lembranças que vou levar comigo.
         </p>
 
         <p>
-            Também guardo com carinho os momentos que vivo no balé,
-            as brincadeiras com meus amigos e os momentos ao lado da minha família.
+            Foi durante essa experiência que também construí uma amizade
+            muito especial. Uma pessoa que antes da viagem não fazia parte
+            da minha vida acabou se tornando alguém muito importante.
+            É incrível como algumas experiências aproximam pessoas
+            que talvez nunca imaginassem criar uma amizade.
         </p>
+
+        <p>
+            Além da Itália, guardo com carinho os momentos do balé,
+            as viagens, as comemorações, as risadas com meus amigos
+            e os momentos simples ao lado da minha família.
+        </p>
+
+        <div class="frase-destaque">
+            <p>
+                Algumas lembranças passam, mas existem experiências
+                que ficam para sempre na nossa história. 💜
+            </p>
+        </div>
+
     </section>
+
+    <!-- MEUS PROJETOS -->
+
+    <section id="projetos">
+
+        <h2>Minha criatividade e meus projetos</h2>
+
+        <p>
+            Gosto de ter ideias, aprender coisas novas e transformar
+            minhas vontades em projetos. Um exemplo disso é meu interesse
+            pelo mundo das unhas, onde posso desenvolver minha criatividade,
+            aprender técnicas e aperfeiçoar meus trabalhos.
+        </p>
+
+        <p>
+            Também tenho minha mini doceria, a Briga Lu, que representa
+            mais uma experiência de empreendedorismo. É um projeto que
+            envolve organização, dedicação, criatividade e contato
+            com os clientes.
+        </p>
+
+        <p>
+            Essas experiências me mostram que posso aprender muito
+            quando tenho vontade de fazer alguma coisa. Quero continuar
+            desenvolvendo minhas ideias e descobrindo novas possibilidades.
+        </p>
+
+    </section>
+
+    <!-- MEU FUTURO -->
 
     <section id="futuro">
-        <h2>Meus sonhos e planos</h2>
+
+        <h2>Meus sonhos e planos para o futuro</h2>
 
         <p>
-            Quero continuar realizando meus sonhos, conhecendo lugares novos,
-            aprendendo coisas diferentes e conquistando minha independência.
-            Sei que ainda tenho um longo caminho pela frente, mas quero
-            aproveitar cada fase e construir uma história da qual eu me orgulhe.
+            Quando penso no futuro, penso em todas as coisas que ainda
+            quero conquistar. Quero terminar meus estudos, construir
+            minha independência, crescer profissionalmente e conseguir
+            realizar meus objetivos.
         </p>
+
+        <p>
+            Também quero continuar viajando, conhecer novos lugares,
+            viver experiências diferentes e estar perto das pessoas
+            que amo.
+        </p>
+
+        <p>
+            Sei que nem tudo acontece no tempo que imaginamos e que
+            ainda vou enfrentar muitos desafios. Mas quero continuar
+            aprendendo, amadurecendo e aproveitando cada etapa da minha vida.
+        </p>
+
+        <p>
+            Acima de tudo, quero olhar para trás um dia e sentir orgulho
+            de tudo que construí e da pessoa que me tornei.
+        </p>
+
     </section>
 
+    <!-- RODAPÉ -->
+
     <footer>
-        <p>Feito com carinho 💜</p>
+
+        <p class="coracao">💜</p>
+
+        <p>Esse é um pouquinho de quem eu sou!</p>
+
+        <p>Feito com carinho por Luiza Gonçalves Puccetti</p>
+
         <p>© 2026 - Meu site pessoal</p>
+
     </footer>
 
 </body>
